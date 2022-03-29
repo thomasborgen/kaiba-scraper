@@ -1,0 +1,84 @@
+{
+      "name": "root",
+      "array": false,
+      "iterators": [
+        {
+          "alias": "ingredients_group",
+          "path": [
+            "div",
+            0,
+            "div"
+          ]
+        },
+        {
+          "alias": "ingredient",
+          "path": [
+            "ingredients_group",
+            "div",
+            0,
+            "table",
+            0,
+            "tr"
+          ]
+        }
+      ],
+      "attributes": [
+        {
+          "name": "name",
+          "data_fetchers": [
+            {
+              "path": [
+                "ingredient",
+                "td",
+                1,
+                "#text"
+              ],
+              "regex": {
+                "expression": "^([^\\n]*).*"
+              },
+              "if_statements": []
+            }
+          ],
+          "if_statements": []
+        },
+        {
+          "name": "quantity",
+          "data_fetchers": [
+            {
+              "path": [
+                "ingredient",
+                "td",
+                0,
+                "#text"
+              ],
+              "regex": {
+                "expression": "\\d+"
+              },
+              "if_statements": []
+            }
+          ],
+          "if_statements": []
+        },
+        {
+          "name": "unit",
+          "data_fetchers": [
+            {
+              "path": [
+                "ingredient",
+                "td",
+                0,
+                "#text"
+              ],
+              "regex": {
+                "expression": "(\\w+)",
+                "group": 1
+              },
+              "if_statements": []
+            }
+          ],
+          "if_statements": [],
+          "default": "stk"
+        }
+      ],
+      "objects": []
+    }

@@ -21,6 +21,10 @@ mock_db: dict[str: ScraperSettings] = {
     'www.matprat.no': ScraperSettings(
         filename='matprat.no.json',
         selector='div[class=ingredients-list]',
+    ),
+    'trinesmatblogg.no': ScraperSettings(
+        filename='trinesmatblogg.no.json',
+        selector='div[class=single-recipe__ingredients]',
     )
 }
 
@@ -59,6 +63,10 @@ def main(url: str):
     # convert the soup to a dict
     soup_as_dict = convert(selected_soup)
 
+    # write the raw html json so that its easy to look at while mapping
+    with open('raw_html_data.json', 'w') as f:
+        f.write(json.dumps(soup_as_dict))
+
     # feed the kaiba config and the raw data into the kaiba mapper
     processed_data = process_raise(
         input_data=soup_as_dict,
@@ -72,5 +80,5 @@ def main(url: str):
 
 if __name__ == '__main__':
     main(
-        url='https://www.matprat.no/oppskrifter/sunn/kyllinggryte-med-gronnsaker/'
+        url='https://trinesmatblogg.no/recipe/bacalao-med-norske-matskatter/'
     )
