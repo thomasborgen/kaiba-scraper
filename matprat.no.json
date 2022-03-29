@@ -1,0 +1,71 @@
+{
+    "name": "root",
+    "array": true,
+    "iterators": [
+        {
+            "alias": "product_list",
+            "path": [
+                "div",
+                0,
+                "ul"
+            ]
+        },
+        {
+            "alias": "product",
+            "path": [
+                "product_list",
+                "li"
+            ]
+        }
+    ],
+    "attributes": [
+        {
+            "name": "name",
+            "data_fetchers": [
+                {
+                    "path": [
+                        "product",
+                        "span",
+                        2,
+                        "#text"
+                    ],
+                    "if_statements": []
+                }
+            ],
+            "if_statements": []
+        },
+        {
+            "name": "amount",
+            "data_fetchers": [
+                {
+                    "path": [
+                        "product",
+                        "span",
+                        0,
+                        "@data-amount"
+                    ],
+                    "if_statements": []
+                }
+            ],
+            "if_statements": [],
+            "default": "0"
+        },
+        {
+            "name": "unit",
+            "data_fetchers": [
+                {
+                    "path": [
+                        "product",
+                        "span",
+                        1,
+                        "@data-unit"
+                    ],
+                    "if_statements": []
+                }
+            ],
+            "if_statements": [],
+            "default": "g"
+        }
+    ],
+    "objects": []
+}

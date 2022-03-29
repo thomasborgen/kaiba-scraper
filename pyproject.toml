@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "kaiba-scraper"
+version = "0.1.0"
+description = ""
+authors = ["Thomas Borgen <thomasborgen91@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+kaiba = "^1.0.0"
+beautifulsoup4 = "^4.10.0"
+soup2dict = "^2.1.0"
+pydantic = "^1.9.0"
+requests = "^2.27.1"
+lxml = "^4.8.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
