@@ -1,4 +1,4 @@
-import json
+import simplejson as json
 
 from kaiba.process import process_raise
 from pydantic import BaseModel
@@ -65,7 +65,7 @@ def main(url: str):
 
     # write the raw html json so that its easy to look at while mapping
     with open('raw_html_data.json', 'w') as f:
-        f.write(json.dumps(soup_as_dict))
+        f.write(json.dumps(soup_as_dict, ensure_ascii=False))
 
     # feed the kaiba config and the raw data into the kaiba mapper
     processed_data = process_raise(
@@ -75,10 +75,10 @@ def main(url: str):
 
     # write data:
     with open('mapped_data.json', 'w') as f:
-        f.write(json.dumps(processed_data))
+        f.write(json.dumps(processed_data, ensure_ascii=False))
 
 
 if __name__ == '__main__':
     main(
-        url='https://trinesmatblogg.no/recipe/bacalao-med-norske-matskatter/'
+        url='https://www.matprat.no/oppskrifter/sunn/kyllinggryte-med-gronnsaker/'
     )
